@@ -50,15 +50,15 @@
 		<provider_ref id="2" mode="non-exclusive" />
 	</tmc_provider_set>
 
-   <!-- TMCpro + Trafficmaster+ infoBlu + viaMichelin + MediaMobile Nordic -->
-   <tmc_provider_set id="15" use_free_tmc="true"
-      use_online_traffic="false">
-      <provider_ref id="1" mode="non-exclusive" />
-      <provider_ref id="2" mode="non-exclusive" />
-      <provider_ref id="5" mode="non-exclusive" />
-      <provider_ref id="9" mode="non-exclusive" />
-      <provider_ref id="13" mode="non-exclusive" />
-   </tmc_provider_set>
+	<!-- TMCpro + Trafficmaster+ infoBlu + viaMichelin + MediaMobile Nordic -->
+	<tmc_provider_set id="15" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="1" mode="non-exclusive" />
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="5" mode="non-exclusive" />
+		<provider_ref id="9" mode="non-exclusive" />
+		<provider_ref id="13" mode="non-exclusive" />
+	</tmc_provider_set>
 
 	<!-- PayTMC GER -->
 	<tmc_provider_set id="19" use_free_tmc="true"
@@ -156,16 +156,16 @@
 		<provider_ref id="12" mode="non-exclusive" />
 	</tmc_provider_set>
 
-   <!-- TMCpro + Trafficmaster+ infoBlu + viaMichelin + MediaMobile Nordic -->
-   <!-- 32768 + 15 -->
-   <tmc_provider_set id="32783" use_free_tmc="true"
-      use_online_traffic="true">
-      <provider_ref id="1" mode="non-exclusive" />
-      <provider_ref id="2" mode="non-exclusive" />
-      <provider_ref id="5" mode="non-exclusive" />
-      <provider_ref id="9" mode="non-exclusive" />
-      <provider_ref id="13" mode="non-exclusive" />
-   </tmc_provider_set>
+	<!-- TMCpro + Trafficmaster+ infoBlu + viaMichelin + MediaMobile Nordic -->
+	<!-- 32768 + 15 -->
+	<tmc_provider_set id="32783" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="1" mode="non-exclusive" />
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="5" mode="non-exclusive" />
+		<provider_ref id="9" mode="non-exclusive" />
+		<provider_ref id="13" mode="non-exclusive" />
+	</tmc_provider_set>
 
 	<!-- PayTMC GER -->
 	<!-- 32768 + 19 -->
