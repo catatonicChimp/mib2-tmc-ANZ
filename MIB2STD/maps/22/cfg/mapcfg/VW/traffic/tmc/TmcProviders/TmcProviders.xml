@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file defines all known tmc providers, both Pay-TMC and Free-TMC. 
+	Element tmc_provider: The attribute "name" specifies a human-readable identifier 
+	for the provider. This is only used for logging etc. The attribute "id" defines 
+	the identifier for this provider. This id is used to reference the provider 
+	in the provider set in TmcProviderSers.xml. Subelement encryption_method 
+	(mandatory): Can have the values "full", "light" and "free". Use "full" for 
+	Pay-TMC providers that use full encryption, "light" for Pay-TMC providers 
+	that use light (sometimes called interim) encryption. The value "free" is 
+	used to specify a free tmc table for a country. Subelement cc (mandatory): 
+	The 2 letter ISO country code of the country where the provider is located. 
+	Subelement sid (optional, defaults to 0): Specifies the service identifier 
+	for the Pay TMC provider. Can be omitted when defining a free TMC table. 
+	Subelement ltn_transmitted (mandatory): Defines the location table number 
+	that the provider transmits. For a provider with full encryption, set this 
+	to the LTNBE value transmitted in the RDS 8A Encryption Administration Group. 
+	For a provider with light or no encryption, set this to the value transmitted 
+	in RDS 3A LTN Group. Subelement ltn_used (optional, defaults to 0): Defines 
+	the location table number that is used to look up in the navigation database 
+	to decode the locations. This element can be omitted when encryption_method 
+	is set to "free". Subelement service_key (optional, defaults to 0): If a 
+	providers employs full encryption, this element specifies the service key 
+	that should be used to decrypt the location codes. Mandatory if encryption_method 
+	is set to "full". So, in summary, set the values as follows for different 
+	provider scenarios: Case 1: Provider with full encryption: - sid is set - 
+	ltn_transmitted and ltn_used are set to the same value, that is used by the 
+	provider - service_key is set to the service key that is used by the provider 
+	Case 2: Provider with light encryption using a private location table - sid 
+	is set - ltn_transmitted and ltn_used are set to the same value, the value 
+	used by the provider Case 3: Provider with light encryption using a mapping 
+	to a free tmc table - sid is set - ltn_transmitted is set to the value transmitted 
+	by the provider - ltn_used is set to the value the transmitted ltn should 
+	be mapped to Case 4: Define a free tmc table - omit sid or set it to 0 - 
+	set ltn_transmitted to the ltn of the table - ltn_used can be omitted -->
+
+<tmc_providers>
+
+	<!-- List of Pay TMC providers and their location tables -->
+	
+	<!-- Attention Service Keys are scrambled in TmcEncryptionManager -->
+
+	<tmc_provider name="TMC Pro" id="1">
+		<encryption_method>full</encryption_method>
+		<cc>DE</cc>
+		<sid>50</sid>
+		<ltn_transmitted>1</ltn_transmitted>
+		<ltn_used>1</ltn_used>
+		<service_key>4</service_key>
+	</tmc_provider>
+
+	<tmc_provider name="Trafficmaster" id="2">
+		<encryption_method>light</encryption_method>
+		<cc>GB</cc>
+		<sid>7</sid>
+		<ltn_transmitted>7</ltn_transmitted>
+		<ltn_used>7</ltn_used>
+	</tmc_provider>
+
+	<tmc_provider name="ViaMichelin" id="5">
+		<encryption_method>light</encryption_method>
+		<cc>FR</cc>
+		<sid>58</sid>
+		<ltn_transmitted>29</ltn_transmitted>
+		<ltn_used>32</ltn_used>
+	</tmc_provider>
+
+	<tmc_provider name="MMN" id="9">
+		<encryption_method>full</encryption_method>
+		<cc>FI</cc>
+		<sid>1</sid>
+		<ltn_transmitted>17</ltn_transmitted>
+		<ltn_used>17</ltn_used>
+		<service_key>3</service_key>
+	</tmc_provider>
+
+	<tmc_provider name="BeMobile" id="11">
+		<encryption_method>full</encryption_method>
+		<cc>PT</cc>
+		<sid>3</sid>
+		<ltn_transmitted>42</ltn_transmitted>
+		<ltn_used>42</ltn_used>
+		<service_key>3</service_key>
+	</tmc_provider>
+	
+	<tmc_provider name="Inrix" id="12">
+		<encryption_method>light</encryption_method>
+		<cc>GB</cc>
+		<sid>55</sid>
+		<ltn_transmitted>10</ltn_transmitted>
+		<ltn_used>10</ltn_used>
+	</tmc_provider>
+
+   <tmc_provider name="Hungary_pay" id="13">
+      <encryption_method>full</encryption_method>
+      <cc>HU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>1</ltn_transmitted>
+      <ltn_used>1</ltn_used>
+      <service_key>6</service_key>
+   </tmc_provider>
+
+
+   <tmc_provider name="SUNA ACT" id="16">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>53</ltn_transmitted>
+      <ltn_used>53</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="SUNA NSW" id="17">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>54</ltn_transmitted>
+      <ltn_used>54</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="SUNA VIC" id="18">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>55</ltn_transmitted>
+      <ltn_used>55</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="SUNA QLD" id="19">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>56</ltn_transmitted>
+      <ltn_used>56</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="SUNA SA" id="20">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>57</ltn_transmitted>
+      <ltn_used>57</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="SUNA WA" id="21">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>58</ltn_transmitted>
+      <ltn_used>58</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>      
+
+   <tmc_provider name="SUNA TAS" id="22">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>59</ltn_transmitted>
+      <ltn_used>59</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="SUNA NT" id="23">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>1</sid>
+      <ltn_transmitted>60</ltn_transmitted>
+      <ltn_used>60</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="SUNA NZ" id="24">
+      <encryption_method>full</encryption_method>
+      <cc>NZ</cc>
+      <sid>1</sid>
+      <ltn_transmitted>41</ltn_transmitted>
+      <ltn_used>41</ltn_used>
+      <service_key>4</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="HereTraffic ACT" id="25">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>7</sid>
+      <ltn_transmitted>53</ltn_transmitted>
+      <ltn_used>53</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="HereTraffic NSW" id="26">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>7</sid>
+      <ltn_transmitted>54</ltn_transmitted>
+      <ltn_used>54</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="HereTraffic VIC" id="27">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>7</sid>
+      <ltn_transmitted>55</ltn_transmitted>
+      <ltn_used>55</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="HereTraffic QLD" id="28">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>7</sid>
+      <ltn_transmitted>56</ltn_transmitted>
+      <ltn_used>56</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="HereTraffic SA" id="29">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>7</sid>
+      <ltn_transmitted>57</ltn_transmitted>
+      <ltn_used>57</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="HereTraffic WA" id="30">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>7</sid>
+      <ltn_transmitted>58</ltn_transmitted>
+      <ltn_used>58</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>      
+
+   <tmc_provider name="HereTraffic TAS" id="31">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>7</sid>
+      <ltn_transmitted>59</ltn_transmitted>
+      <ltn_used>59</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="HereTraffic NT" id="32">
+      <encryption_method>full</encryption_method>
+      <cc>AU</cc>
+      <sid>7</sid>
+      <ltn_transmitted>60</ltn_transmitted>
+      <ltn_used>60</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>
+
+   <tmc_provider name="HereTraffic NZ" id="33">
+      <encryption_method>full</encryption_method>
+      <cc>NZ</cc>
+      <sid>7</sid>
+      <ltn_transmitted>41</ltn_transmitted>
+      <ltn_used>41</ltn_used>
+      <service_key>7</service_key>
+   </tmc_provider>
+
+	<!-- List of free TMC location tables. This list is used to identify free 
+		TMC tables in the NDS database. The id attribute of the tmc_provider element 
+		is omitted because these providers are not referenced in provider sets, or 
+		anywhere else. The encryption method is set to "free" and the cc and ltn_transmitted 
+		elements are used to specify the cc/ltn combination used in the country. -->
+
+	<tmc_provider name="Andorra">
+		<encryption_method>free</encryption_method>
+		<cc>AD</cc>
+		<ltn_transmitted>1</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Austria">
+		<encryption_method>free</encryption_method>
+		<cc>AT</cc>
+		<ltn_transmitted>1</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Belgium">
+		<encryption_method>free</encryption_method>
+		<cc>BE</cc>
+		<ltn_transmitted>1</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Czech Republic">
+		<encryption_method>free</encryption_method>
+		<cc>CZ</cc>
+		<ltn_transmitted>25</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Denmark">
+		<encryption_method>free</encryption_method>
+		<cc>DK</cc>
+		<ltn_transmitted>9</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="France">
+		<encryption_method>free</encryption_method>
+		<cc>FR</cc>
+		<ltn_transmitted>32</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Germany">
+		<encryption_method>free</encryption_method>
+		<cc>DE</cc>
+		<ltn_transmitted>1</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Italy">
+		<encryption_method>free</encryption_method>
+		<cc>IT</cc>
+		<ltn_transmitted>1</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="The Netherlands">
+		<encryption_method>free</encryption_method>
+		<cc>NL</cc>
+		<ltn_transmitted>17</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Norway">
+		<encryption_method>free</encryption_method>
+		<cc>NO</cc>
+		<ltn_transmitted>49</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Slovakia">
+		<encryption_method>free</encryption_method>
+		<cc>SK</cc>
+		<ltn_transmitted>51</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Spain">
+		<encryption_method>free</encryption_method>
+		<cc>ES</cc>
+		<ltn_transmitted>17</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Sweden">
+		<encryption_method>free</encryption_method>
+		<cc>SE</cc>
+		<ltn_transmitted>33</ltn_transmitted>
+	</tmc_provider>
+
+	<tmc_provider name="Switzerland">
+		<encryption_method>free</encryption_method>
+		<cc>CH</cc>
+		<ltn_transmitted>9</ltn_transmitted>
+	</tmc_provider>
+
+   <tmc_provider name="Ireland">
+      <encryption_method>free</encryption_method>
+      <cc>IE</cc>
+      <ltn_transmitted>42</ltn_transmitted>
+   </tmc_provider>
+
+   <tmc_provider name="Ireland">
+      <encryption_method>free</encryption_method>
+      <cc>IE</cc>
+      <ltn_transmitted>41</ltn_transmitted>
+   </tmc_provider>
+
+   <tmc_provider name="Greece">
+      <encryption_method>free</encryption_method>
+      <cc>GR</cc>
+      <ltn_transmitted>17</ltn_transmitted>
+   </tmc_provider>
+
+   <tmc_provider name="Greece">
+      <encryption_method>free</encryption_method>
+      <cc>GR</cc>
+      <ltn_transmitted>18</ltn_transmitted>
+   </tmc_provider>
+
+   <tmc_provider name="Slovenia">
+      <encryption_method>free</encryption_method>
+      <cc>SI</cc>
+      <ltn_transmitted>33</ltn_transmitted>
+   </tmc_provider>
+
+   <tmc_provider name="Bulgaria">
+      <encryption_method>free</encryption_method>
+      <cc>BG</cc>
+      <ltn_transmitted>1</ltn_transmitted>
+   </tmc_provider>
+
+</tmc_providers>

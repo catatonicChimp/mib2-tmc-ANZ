@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file defines the different provider configurations, as specified 
+	by VW. One configuration is the active configuration. Configurations are 
+	selected by their id.
+	
+	Element tmc_provider_set: The attribute "use_free_tmc" 
+	can have a value of either "true" or "false". If it is set to "true", all 
+	free tmc tables are activated, except for countries where a provider in exclusive 
+	mode is referenced. If "use_free_tmc" is set to "false", no free tmc tables 
+	are activated, only the providers referenced in the provider set are used. 
+	The attribute "use_online_traffic" can be set to either "true" or "false". 
+	If set to "true", online traffic is activated and preferred. If set to "false", 
+	no online traffic is used. Each element tmc_provider_set can have zero or 
+	more child elements of type provider_ref. Each provider_ref element specifies 
+	a provider that is activated in that provider set.
+	
+	Element provider_ref: 
+	The attribute "id" references a provider defined in TmcProviders.xml. This 
+	provider is activated in the enclosing provider set. The attribute "mode" 
+	can have a value of "exclusive" or "non-exclusive". If mode is "exclusive", 
+	the free tmc tables for the country of the referenced provider are deactivated. 
+	In "non-exclusive" mode, the free tmc tables are activated. This attribute 
+	is optional, if it is omitted the mode is set to "non-exclusive". -->
+
+<tmc_provider_sets>
+
+	<!-- Only free TMC -->
+	<tmc_provider_set id="0" use_free_tmc="true"
+		use_online_traffic="false" />
+
+	<!-- VW TMCpro -->
+	<tmc_provider_set id="3" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="1" mode="non-exclusive" />
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="5" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- VW w/o TMCpro -->
+	<tmc_provider_set id="4" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="5" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- Bentley w/o TMCpro w/o MediaMobile -->
+	<tmc_provider_set id="7" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="2" mode="non-exclusive" />
+	</tmc_provider_set>
+
+   <!-- TMCpro + Trafficmaster+ infoBlu + viaMichelin + MediaMobile Nordic -->
+   <tmc_provider_set id="15" use_free_tmc="true"
+      use_online_traffic="false">
+      <provider_ref id="1" mode="non-exclusive" />
+      <provider_ref id="2" mode="non-exclusive" />
+      <provider_ref id="5" mode="non-exclusive" />
+      <provider_ref id="9" mode="non-exclusive" />
+      <provider_ref id="13" mode="non-exclusive" />
+   </tmc_provider_set>
+
+	<!-- PayTMC GER -->
+	<tmc_provider_set id="19" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="1" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- PayTMC France -->
+	<tmc_provider_set id="20" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="5" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- PayTMC UK -->
+	<tmc_provider_set id="21" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="2" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- PayTMC PT -->
+	<tmc_provider_set id="22" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="11" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- VW PayTMC all -->
+	<tmc_provider_set id="1023" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="1" mode="non-exclusive" />
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="5" mode="non-exclusive" />
+		<provider_ref id="9" mode="non-exclusive" />
+		<provider_ref id="11" mode="non-exclusive" />
+		<provider_ref id="13" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- SUNA + HERE TRAFFIC -->
+	<tmc_provider_set id="1024" use_free_tmc="true"
+		use_online_traffic="false">
+		<provider_ref id="15" mode="non-exclusive" />
+		<provider_ref id="16" mode="non-exclusive" />
+		<provider_ref id="17" mode="non-exclusive" />
+		<provider_ref id="18" mode="non-exclusive" />
+		<provider_ref id="19" mode="non-exclusive" />
+		<provider_ref id="20" mode="non-exclusive" />
+		<provider_ref id="21" mode="non-exclusive" />
+		<provider_ref id="22" mode="non-exclusive" />
+		<provider_ref id="23" mode="non-exclusive" />
+		<provider_ref id="24" mode="non-exclusive" />
+		<provider_ref id="25" mode="non-exclusive" />
+		<provider_ref id="26" mode="non-exclusive" />
+		<provider_ref id="27" mode="non-exclusive" />
+		<provider_ref id="28" mode="non-exclusive" />
+		<provider_ref id="29" mode="non-exclusive" />
+		<provider_ref id="30" mode="non-exclusive" />
+		<provider_ref id="31" mode="non-exclusive" />
+		<provider_ref id="32" mode="non-exclusive" />
+		<provider_ref id="33" mode="non-exclusive" />
+	</tmc_provider_set>
+
+
+	<!-- ------------- Online Traffic Provider Sets --------------- -->
+
+	<!-- Only free TMC -->
+	<!-- 32768 + 0 -->
+	<tmc_provider_set id="32768" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="12" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- VW TMCpro -->
+	<!-- 32768 + 3 -->
+	<tmc_provider_set id="32771" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="1" mode="non-exclusive" />
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="5" mode="non-exclusive" />
+		<provider_ref id="12" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- VW w/o TMCpro -->
+	<!-- 32768 + 4 -->
+	<tmc_provider_set id="32772" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="5" mode="non-exclusive" />
+		<provider_ref id="12" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- Bentley w/o TMCpro w/o MediaMobile -->
+	<!-- 32768 + 7 -->
+	<tmc_provider_set id="32775" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="12" mode="non-exclusive" />
+	</tmc_provider_set>
+
+   <!-- TMCpro + Trafficmaster+ infoBlu + viaMichelin + MediaMobile Nordic -->
+   <!-- 32768 + 15 -->
+   <tmc_provider_set id="32783" use_free_tmc="true"
+      use_online_traffic="true">
+      <provider_ref id="1" mode="non-exclusive" />
+      <provider_ref id="2" mode="non-exclusive" />
+      <provider_ref id="5" mode="non-exclusive" />
+      <provider_ref id="9" mode="non-exclusive" />
+      <provider_ref id="13" mode="non-exclusive" />
+   </tmc_provider_set>
+
+	<!-- PayTMC GER -->
+	<!-- 32768 + 19 -->
+	<tmc_provider_set id="32787" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="1" mode="non-exclusive" />
+		<provider_ref id="12" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- PayTMC France -->
+	<!-- 32768 + 20 -->
+	<tmc_provider_set id="32788" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="5" mode="non-exclusive" />
+		<provider_ref id="12" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- PayTMC UK -->
+	<!-- 32768 + 21 -->
+	<tmc_provider_set id="32789" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="12" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- PayTMC PT -->
+	<!-- 32768 + 22 -->
+	<tmc_provider_set id="32790" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="11" mode="non-exclusive" />
+		<provider_ref id="12" mode="non-exclusive" />
+	</tmc_provider_set>
+
+	<!-- VW PayTMC all -->
+	<!-- 32768 + 1023 -->
+	<tmc_provider_set id="33791" use_free_tmc="true"
+		use_online_traffic="true">
+		<provider_ref id="1" mode="non-exclusive" />
+		<provider_ref id="2" mode="non-exclusive" />
+		<provider_ref id="5" mode="non-exclusive" />
+		<provider_ref id="9" mode="non-exclusive" />
+		<provider_ref id="11" mode="non-exclusive" />
+		<provider_ref id="12" mode="non-exclusive" />
+		<provider_ref id="13" mode="non-exclusive" />
+	</tmc_provider_set>
+
+
+	<tmc_provider_set id="65534" use_free_tmc="false"
+		use_online_traffic="false" />
+	<tmc_provider_set id="65535" use_free_tmc="false"
+		use_online_traffic="false" />
+
+</tmc_provider_sets>
